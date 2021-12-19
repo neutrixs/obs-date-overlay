@@ -1,5 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = function(env,argv){
     console.log(argv)
@@ -20,6 +22,21 @@ const config = (devMode)=>({
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
@@ -30,6 +47,11 @@ const config = (devMode)=>({
             publicPath: '/'
         })
     ],
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin()
+        ]
+    },
     resolve: {
         extensions: ['.tsx','.ts','.js']
     },
