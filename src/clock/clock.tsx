@@ -6,6 +6,7 @@ interface states {
     dateFormat: string
     parsedTime: string
     clockInterval: NodeJS.Timer | undefined
+    textAlign: React.CSSProperties['textAlign']
 }
 
 export default class Clock extends React.Component<{},states> {
@@ -14,7 +15,8 @@ export default class Clock extends React.Component<{},states> {
         this.state = {
             dateFormat: 'YYYY-MM-DD HH:mm:ss',
             parsedTime: '',
-            clockInterval: undefined
+            clockInterval: undefined,
+            textAlign: 'left'
         }
     }
 
@@ -39,7 +41,8 @@ export default class Clock extends React.Component<{},states> {
         const param = !search ? {} : JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
 
         this.setState((prevStates:states)=>({
-            dateFormat: param.format ?? prevStates.dateFormat
+            dateFormat: param.format ?? prevStates.dateFormat,
+            textAlign: param.align ?? prevStates.textAlign
         }))
     }
 
@@ -49,8 +52,14 @@ export default class Clock extends React.Component<{},states> {
     
     render(){
         return(
-            <div id="clock">
-                <span>{this.state.parsedTime}</span>
+            <div 
+                style={{
+                    textAlign:this.state.textAlign
+                }}
+                >
+                <div id="clock">
+                    <span>{this.state.parsedTime}</span>
+                </div>
             </div>
         )
     }
