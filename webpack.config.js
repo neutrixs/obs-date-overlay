@@ -46,7 +46,9 @@ const config = (devMode)=>({
             filename: 'index.html',
             publicPath: '/'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: 'assets/[contenthash].css'
+        })
     ],
     optimization: {
         minimizer: [
