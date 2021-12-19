@@ -45,7 +45,8 @@ const config = (devMode)=>({
             template: './src/index.html',
             filename: 'index.html',
             publicPath: '/'
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
     optimization: {
         minimizer: [
