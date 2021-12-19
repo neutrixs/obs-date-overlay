@@ -7,5 +7,22 @@
     "react-dom": "^17.0.2",
     "webpack": "^5.65.0",
     "webpack-dev-server": "^4.6.0"
-  }
+  },
+  "name": "obs-date-overlay",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neutrixs/obs-date-overlay.git"
+  },
+  "author": "Neutrixs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neutrixs/obs-date-overlay/issues"
+  },
+  "homepage": "https://github.com/neutrixs/obs-date-overlay#readme",
+  "description": ""
 }
