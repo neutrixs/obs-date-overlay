@@ -1,6 +1,8 @@
 import * as React from 'react'
 import {render} from 'react-dom'
 
+import Clock from './clock/clock'
+
 class Main extends React.Component {
     constructor(props:{}) {
         super(props)
@@ -8,7 +10,7 @@ class Main extends React.Component {
 
     render(){
         return(
-            <p>Hello World</p>
+            <Clock />
         )
     }
 }
