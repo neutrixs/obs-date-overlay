@@ -45,7 +45,16 @@ const config = (mode)=>({
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',
-            publicPath: './'
+            publicPath: './',
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true
+            }
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/[contenthash].css'
