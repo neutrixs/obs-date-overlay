@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
+const TerserPlugin = require("terser-webpack-plugin")
 
 module.exports = function(env,argv){
     console.log(argv)
@@ -53,7 +54,12 @@ const config = (mode)=>({
     optimization: {
         minimize: mode === 'production',
         minimizer: [
-            new CssMinimizerPlugin()
+            new CssMinimizerPlugin(),
+            new TerserPlugin({
+                terserOptions: {
+                    mangle: mode === 'production',
+                }
+            })
         ]
     },
     resolve: {
