@@ -65,6 +65,10 @@ const config = (mode)=>({
     resolve: {
         extensions: ['.tsx','.ts','.js']
     },
+    performance: {
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     devServer: {
         host: '0.0.0.0',
         port: 8080,
