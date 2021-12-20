@@ -5,7 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = function(env,argv){
     console.log(argv)
-    return config(argv.mode === 'development' ? 'development' : 'production')
+    return config(argv.mode ?? 'production')
 }
 
 const config = (devMode)=>({
