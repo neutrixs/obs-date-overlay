@@ -13,7 +13,7 @@ export default class Clock extends React.Component<{},states> {
     constructor(props: {}) {
         super(props)
         this.state = {
-            dateFormat: 'YYYY-MM-DD HH:mm:ss',
+            dateFormat: 'YYYY-MM-DD HH:mm:ss Z',
             parsedTime: '',
             clockInterval: undefined,
             textAlign: 'left'
