@@ -1,7 +1,8 @@
 import * as React from 'react'
+import {lazy, Suspense} from 'react'
 import {render} from 'react-dom'
 
-import Clock from './clock/clock'
+const Clock = lazy(()=>import('./clock/clock'))
 
 class Main extends React.Component {
     constructor(props:{}) {
@@ -10,7 +11,9 @@ class Main extends React.Component {
 
     render(){
         return(
-            <Clock />
+            <Suspense fallback={null}>
+                <Clock />
+            </Suspense>
         )
     }
 }
