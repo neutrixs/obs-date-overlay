@@ -8,8 +8,8 @@ module.exports = function(env,argv){
     return config(argv.mode ?? 'production')
 }
 
-const config = (devMode)=>({
-    mode:devMode,
+const config = (mode)=>({
+    mode:mode,
     entry: './src/index.tsx',
     output: {
         filename:"assets/[contenthash].js",
@@ -51,6 +51,7 @@ const config = (devMode)=>({
         })
     ],
     optimization: {
+        minimize: mode === 'production',
         minimizer: [
             new CssMinimizerPlugin()
         ]
