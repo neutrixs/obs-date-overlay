@@ -18,7 +18,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "name": "obs-date-overlay",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack serve --mode=development",
